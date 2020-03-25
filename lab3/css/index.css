@@ -1,0 +1,98 @@
+html{
+    background-color: whitesmoke;
+}
+body{
+    width: 900px;
+    max-width: 900px;
+    color: #444444;
+    font-family: Candara, sans-serif;
+}
+header{
+    margin-left: 140px;
+    max-width: 900px;
+    width: 900px;
+    background-color: white;
+}
+header nav{
+    background-color: #3b3b3b;
+    height: 70px;
+}
+div.toPages{
+    display: inline;
+    padding: 20px;
+}
+div.toPages h2{
+    margin-left: 20px;
+}
+div.registry{
+    float: right;
+    margin-right: 20px;
+}
+aside nav{
+    width: 130px;
+    height: 160px;
+    float: right;
+    position: fixed;
+    border: 2px dashed #59a1ff;
+    margin-left: 1100px;
+}
+aside nav li{
+    font-size: 20pt;
+    border: 1px dashed #4679c3;
+    margin: 10px 10px 20px;
+    height: 30px;
+}
+aside nav li a{
+    padding: 5px;
+}
+main{
+    margin-left: 140px;
+    background-color: white;
+    max-width: 900px;
+    width: 900px;
+}
+main h2{
+    margin: 10px;
+    font-size: 25pt;
+    font-weight: bold;
+}
+article{
+    border: 1px dashed #59a1ff;
+    margin: 10px;
+    padding: 5px;
+}
+h3{
+    font-size: 18pt;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+p{
+    margin-left: 10px;
+    line-height: 1.2;
+}
+footer.likes{
+    font-size: 10pt;
+    padding-top: 5px;
+}
+footer.pageNumbers{
+    margin-left: 500px;
+}
+span{
+    color: #59a1ff;
+}
+a:link,a:visited{
+    color: #3b3b3b;
+}
+a:hover{
+    color: #59a1ff;
+}
+div.toPages a{
+     font-size: 20pt;
+    margin-right: 20px;
+ }
+div.registry a:link,div.registry a:visited,div.toPages a:link,div.toPages a:visited{
+    color: whitesmoke;
+}
+div.registry a:hover,div.toPages a:hover{
+    color: #59a1ff;
+}

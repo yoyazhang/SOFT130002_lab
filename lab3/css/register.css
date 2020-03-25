@@ -1,0 +1,81 @@
+html{
+    background-color: whitesmoke;
+}
+body{
+    max-width: 700px;
+    font-family: Candara,sans-serif ;
+}
+header{
+    margin-left: 41%;
+    max-width: 700px;
+    width: 700px;
+    height: 120px;
+    background-color: #3b3b3b;
+}
+h1{
+    font-size: 55pt;
+    color: white;
+    padding-top: 20px;
+    margin-left: 10px;
+}
+nav{
+    font-size: 20pt;
+    color: white;
+    text-align: right;
+    margin-right: 20px;
+    margin-top: -10px;
+}
+section{
+     background-color: white;
+     margin-left: 41%;
+     max-width: 700px;
+     width: 700px;
+}
+fieldset{
+    border: 2px dashed #59a1ff;
+}
+legend{
+    text-align: center;
+    font-size: 23pt;
+}
+div{
+    margin-left: 10px;
+    margin-bottom: 7px;
+    margin-top: 10px;
+}
+label.title{
+    font-size: 16pt;
+    font-weight: bold;
+    margin-right: 10px;
+}
+textarea{
+    margin-left: 0;
+    width: 680px;
+    max-width: 680px;
+    min-width: 680px;
+    height: 300px;
+    max-height: 300px;
+    min-height: 300px;
+}
+input[type="text"],select,input[type="tel"],input[type="password"]{
+    width: 280px;
+    height: 30px;
+    border-radius: 2px;
+}
+input[type="submit"]{
+    width: 248px;
+    height: 40px;
+    font-size: 16pt;
+    margin: 4px 12px 10px 220px;
+    background-color: #59a1ff;
+    color: whitesmoke;
+}
+input[type="submit"]:hover{
+    font-size: 20pt;
+}
+a:link,a:visited{
+    color: whitesmoke;
+}
+a:hover{
+    color: #59a1ff;
+}
