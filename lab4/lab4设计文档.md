@@ -1,39 +1,46 @@
-#lab4设计文档
+# lab4设计文档
 ====
-##页面设计
+## 页面设计
 ----
-###Header
+### Header
 ----
 用.container对header包装，其中分了一行，两列，分别是网站的标题和网站的slogan，class分别为.col-lg-1和.col-md-4（这里虽然有看bootstrap
 的网格系统也大概懂了，但还有一些小问题，例如要将其放在一行内似乎至少要lg-3，但这样又会把header的宽度弄得太大并且似乎在css中修改width
 也没有用，同时在我改了这两段的字体之后他们的lg-3的宽度似乎又失去了意义（？）<br>
-其中slogan部分用了.pull-right将其放置在整个头部的右端。
-###Nav
+其中slogan部分用了.pull-right将其放置在整个头部的右端。<br>
+### Nav
 ----
 套用了bootstrap中最基本的导航栏的组件，我的空间按钮的下拉菜单也套用了dropdown组件完成，这个下拉菜单没有和前面三个写在一栏中，而是作为前
 三者父类的ul同级的新的ul，将其类设置为navbar-right来使其置于整个导航栏右侧。导航栏的颜色通过原生css进行了改动（active的页面是红色，其余
-为蓝色，hover时变为红色）
-###轮播图
+为蓝色，hover时变为红色）<br>
+### 轮播图
 ----
 套用了bootstrap中carousel组件完成，除了改了图片和标题描述外没有更改，改完之后出现的问题是图片的大小不够所以只在轮播器的左边，不美观，通过将img的
-width设为100%使其填充满整个轮播画面，但是比例比较失调，下次最好找尺寸匹配的。
-###Footer
+width设为100%使其填充满整个轮播画面，但是比例比较失调，下次最好找尺寸匹配的。<br>
+### 小图预览
 ----
-用.container对footer包装，放置了一行两列，列的类均为.col-lg-3。
+用row和.col-lg-3分成两行八列的表格样式的展示图，除了对一部分间距、字号的设定外基本没有改动bootstrap的框架。<br>
+### 侧边栏 
+----
+由于没有在bootstrap找到类似的组件，所以基本上是用pj里的代码直接写的，大致排版是通过直接设定left和bottom的百分比，将其position设定为fixed，
+固定在屏幕的右下角。<br>
+### Footer
+----
+用.container对footer包装，放置了一行两列，列的类均为.col-lg-3。<br>
 
-##原生CSS设计
+## 原生CSS设计
 ----
-###主题色
+### 主题色
 ----
 给body设置了背景，贴近这种碰撞色的主题，整个页面的文字如导航栏文字，轮播图中的标题也都是紫红色或者深蓝色，icon图标也用的这两种颜色来表示在或
 不在当前页面，hover时的效果也是两种颜色的转换，除了轮播图中考虑到紫红色更亮，在图片背景下更清晰，以及footer中的文字处于灰黑色背景下必须用白色，
-其他都是原本深蓝色，hover时变为紫红色。
-###大小和布局
+其他都是原本深蓝色，hover时变为紫红色。<br>
+### 大小和布局
 ----
 因为header部分的大小无法改变（主要是掌握得不好），所以大小是其余部分的宽度配合header，宽度为width: 92.6%。<br>
 nav部分中myZone在设定为置于右侧的菜单后有点太靠边了，通过left:-20px;将其往左边移了20px；<br>
-每个部分的文字大小基本都放大了一点，footer部分的文字通过text-align:center和padding-left及margin-top的设置置于整个footer居中的位置。
+每个部分的文字大小基本都放大了一点，footer部分的文字通过text-align:center和padding-left及margin-top的设置置于整个footer居中的位置。<br>
 
-##预览效果图
+## 预览效果图
 ----
- ![](https://github.com/yoyazhang/SOFT130002_lab/raw/lab4/images/Pre-view.png)
+ ![sample](images/Pre-view.png)
