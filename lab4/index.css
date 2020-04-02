@@ -1,0 +1,83 @@
+body{
+    font-family: Candara, sans-serif;
+    background-image: repeating-linear-gradient(45deg, #d4237a 0, #d4237a 50px, #13227a 50px, #13227a 100px);
+}
+header{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(59, 59, 59);
+}
+header h1{
+    width: 600px;
+    font-size: 9rem;
+    color: whitesmoke;
+}
+header h2{
+    padding-top: 16%;
+    padding-left: 10%;
+    font-size: 3rem;
+    color: whitesmoke;
+}
+nav[role="navigation"]{
+    border-radius: 0;
+    width: 92.6%;
+    margin-bottom: 0;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 2.9rem;
+}
+nav>div>ul.nav.navbar-nav>li a{
+    color: #13227a;
+}
+nav>div>ul.nav.navbar-nav>li.active a{
+    color: #d4237a;
+}
+nav>div>ul.nav.navbar-nav>li a:hover{
+    color: #d4237a;
+}
+li.dropdown{
+   left:-20px;
+}
+li.dropdown li{
+    font-size: 2rem;
+}
+main{
+    background-color: whitesmoke;
+    width: 92.6%;
+    margin-left: auto;
+    margin-right: auto;
+}
+div#myCarousel{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    overflow: hidden;
+}
+div.item img{
+    width: 100%;
+}
+div.item a{
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #d4237a;
+    text-decoration: none;
+}
+div.item a:hover{
+    color: #13227a;
+}
+footer{
+    background-color: rgb(59, 59, 59);
+    color: whitesmoke;
+    text-align: center;
+    font-size: 1.6rem;
+}
+footer div.col-lg-3{
+    padding-top: 2%;
+    margin-left: 14%;
+}
+footer a{
+    color: whitesmoke;
+}
+footer a:hover{
+    color: #d4237a;
+}

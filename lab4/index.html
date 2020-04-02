@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <title>Index</title>
+</head>
+<body>
+   <header class="container">
+       <div class="row">
+           <div class="col-lg-1">
+               <h1>Travel To Share</h1>
+           </div>
+           <div class="col-md-4 pull-right">
+               <h2>See the world outside!</h2>
+           </div>
+       </div>
+   </header>
+   <nav class="navbar navbar-default" role="navigation">
+       <div>
+           <ul class="nav navbar-nav">
+               <li class="active"><a href=""><img src="./images/icons/首页-选中.png" width="22" height="22">Home</a></li>
+               <li><a href=""><img src="./images/icons/浏览-未选中.png" width="25" height="25">Browser</a></li>
+               <li><a href=""><img src="./images/icons/搜索-未选中.png" width="22" height="22">Search</a></li>
+           </ul>
+           <ul class="nav navbar-nav navbar-right">
+               <li class="dropdown">
+                   <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                       <img src="./images/icons/个人中心.png" width="22" height="22">myZone<b class="caret"></b>
+                   </a>
+                   <ul class="dropdown-menu">
+                       <li><a href=""><img src="./images/icons/上传-未选中.png" width="22" height="22">Upload</a></li>
+                       <li><a href=""><img src="./images/icons/我的照片-未选中.png" width="22" height="22">MyPhotos</a></li>
+                       <li><a href=""><img src="./images/icons/收藏-未选中.png" width="22" height="22">MyFavorites</a></li>
+                       <li><a href="#"><img src="./images/icons/用户.png" width="22" height="22">LogIn</a></li>
+                   </ul>
+               </li>
+           </ul>
+       </div>
+   </nav>
+   <main>
+       <div class="container">
+           <div id="myCarousel" class="carousel slide">
+               <!-- 轮播（Carousel）指标 -->
+               <ol class="carousel-indicators">
+                   <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                   <li data-target="#myCarousel" data-slide-to="1"></li>
+                   <li data-target="#myCarousel" data-slide-to="2"></li>
+               </ol>
+               <!-- 图片 -->
+               <div class="carousel-inner">
+                   <div class="item active">
+                       <a href="#"><img src="./images/normal/medium/222223.jpg" alt="First slide"></a>
+                       <div class="carousel-caption">
+                           <a href="#">一张很好看的黑白照片</a>
+                       </div>
+                   </div>
+                   <div class="item">
+                       <a href="#"><img src="./images/normal/medium/9494464567.jpg" alt="Second slide"></a>
+                       <div class="carousel-caption">
+                           <a href="#"> Venice,  a place full of adventure and love scenario</a></div>
+                   </div>
+                   <div class="item">
+                       <a href="#"><img src="./images/normal/medium/5856697109.jpg" alt="Third slide"></a>
+                       <div class="carousel-caption">
+                           <a href="#">A beautiful town near the lake! </a>
+                       </div>
+                   </div>
+               </div>
+               <!-- 轮播（Carousel）导航 -->
+               <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                   <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                   <span class="sr-only">Previous</span>
+               </a>
+               <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                   <span class="sr-only">Next</span>
+               </a>
+           </div>
+       </div>
+   </main>
+   <footer class="container">
+       <div class="row">
+           <div class="col-lg-3">
+               <p><a href="">About us</a></p>
+               <p><a href="">Latest Version</a></p>
+           </div>
+           <div class="col-lg-3">
+               <div class="information">YoYa Zhang版权所有 &copy 2019-2020</div>
+               <div class="information">沪公网安备19302010074号</div>
+               <address>Email: <a href = "http://mail.fudan.edu.cn/">19302010074@fudan.edu.cn</a></address>
+           </div>
+       </div>
+   </footer>
+</body>
+</html>
