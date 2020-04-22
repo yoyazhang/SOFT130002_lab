@@ -12,4 +12,5 @@ lab5设计文档
 同样通过for循环将most中的每个字符放在一个数组charList里，再通过二重循环统计每个字符出现的次数放在数组times里，最后进行依次判断，找到出现次数
 最多的字符的index,将max设为最多出现的次数,将result.value设为"The most character is:" + charList[index] + " times:" + max;<br>
 ## 效果图
-![sample](示例.png)
+![sample](截图/示例.png)<br>
+![sample](截图/提交记录.png)<br>
