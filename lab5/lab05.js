@@ -10,7 +10,30 @@ let url_submit = document.getElementById("url_submit");
 let url_result = document.getElementById("url-result");
 url_submit.addEventListener('click',showWindowHref);
 function showWindowHref(){
-
+    let hasName = false;
+    let charList = [];
+    for(let i = 0;i < url.value.length;i++){
+        charList[i] = url.value.substring(i,i+1);
+    }
+    let index = 0;
+    for(let i = 0;i < charList.length-4;i++){
+        if(charList[i] === "n"&&charList[i+1]==="a"&&charList[i+2]==="m"&&charList[i+3]==="e"&&charList[i+4]==="="){
+            hasName = true;
+            index = i+5;
+        }
+    }
+    if(hasName){
+        let lastIndex = url.value.indexOf("&",index);
+        if(lastIndex === -1){
+            url_result.value = url.value.substring(index);
+        }
+        else{
+            url_result.value = url.value.substring(index,lastIndex);
+        }
+    }
+    else{
+        url_result.value = "no name";
+    }
 }
 //2. 每隔五秒运行一次函数直到某一整分钟停止，比如从20:55:45运行到20:56:00停止；或者运行10次，先到的为准。从1开始每过五秒，输入框内数值翻倍。初始值为1。
 //注意：你可以在函数 timeTest内部 和 timeTest外部 写代码使得该功能实现。
@@ -18,8 +41,18 @@ function showWindowHref(){
 
 //提示：mul为html中id为"mul"的元素对象，可直接通过mul.value获得其内的输入值。
 let mul = document.getElementById("mul");
+mul.value = 1;
 function timeTest(){
+    mul.value *= 2;
 }
+let t1 = window.setInterval(timeTest,5000);
+function stopInterval() {
+    if(mul.value == 1024 || new Date().getSeconds() % 60 === 0){
+        window.clearInterval(t1);
+    }
+}
+let t2 = window.setInterval(stopInterval,1000);
+
 //3. 判断输入框most里出现最多的字符，并统计出来。统计出是信息在most_result输入框内以"The most character is:" + index + " times:" + max的形式显示。
 //如果多个出现数量一样则选择一个即可。
 //请仅在arrSameStr函数内写代码。
@@ -30,5 +63,26 @@ let result = document.getElementById("most-result");
 let most_submit = document.getElementById("most_submit");
 most_submit.addEventListener('click',arrSameStr);
 function arrSameStr(){
-
+    let charList = [];
+    for(let i = 0;i < most.value.length;i++){
+        charList[i] = most.value.substring(i,i+1);
+    }
+    let times = [];
+    for(let i = 0;i < charList.length;i++){
+        times[i] = 0;
+        for(let j = 0;j<charList.length;j++){
+            if(charList[i] === charList[j]){
+                times[i]++;
+            }
+        }
+    }
+    let index = 0;
+    let max = times[0];
+    for(let i = 0;i<charList.length;i++){
+        if(times[i] > max){
+            max = times[i];
+            index = i;
+        }
+    }
+    result.value = "The most character is:" + charList[index] + " times:" + max;
 }
