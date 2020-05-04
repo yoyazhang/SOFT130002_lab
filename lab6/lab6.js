@@ -277,8 +277,6 @@ DevelopedCountry.sayHappy = function(){
     //NO.6
     twoSum([2,3,4,5,6],9);
     twoSum([2, 7, 11, 15],9);
-    twoSum([2, 7, 11, 15,2],9)
-    twoSum([2,7,11,15,4,7,2],9);
     //NO.7 wrong
     lengthOfLongestSubstring("abbbbbb");
     lengthOfLongestSubstring("bbbbbb");
