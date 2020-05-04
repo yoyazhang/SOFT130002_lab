@@ -11,9 +11,40 @@
 */
 
 function testTime(){
+    function Counter(){
+        let count = 0;
+        this.getCount = function () {
+            return count;
+        };
+        this.addCount = function () {
+            return count++;
+        }
+    }
+    (function(){
+        let i = 1;
+        let count = new Counter();
+        let double = function() {
+            i *= 2;
+            count.addCount();
+            console.log("now it is "+i);
+        };
+        let t1 = setInterval(double,5000);
+        setInterval(function () {
+            let timeOut = new Date().getSeconds()%60===0;
+            let countOut = count.getCount() === 10;
+            if(countOut|| timeOut){
+                clearInterval(t1);
+                let result = "now it is "+ i + ", 计数为"+ count.getCount() + "次，"+ (timeOut?"它因时间到达整分钟而提前停止":"它没有提前停止");
+                console.log(result);
+                clearInterval(this);
+            }
+        },1000);
+    })();
+}
+
+function testTime2(){
 
 }
-// testTime();
 
 /*
 2.
@@ -24,7 +55,12 @@ function testTime(){
     ④telephone与mail均是字符串。
 */
 function testMail(telephone,mail) {
-
+    let telephonePattern = /\d{11}/g;
+    let mailPattern = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/g;
+    let telephoneResult = telephonePattern.test(telephone);
+    let mailResult = mailPattern.test(mail);
+    let result = "The telephone is "+ (telephoneResult?"right":"wrong")+" and the mail is "+(mailResult?"right":"wrong")+"!";
+    console.log(result);
 }
 
 /*
@@ -37,7 +73,32 @@ function testMail(telephone,mail) {
     ⑤str为字符串。
 */
 function testRedundancy(str) {
-
+    let repeatPattern = /\b(\w+)\b\s\1\b/gi;
+    let repeatArray = [];/\b(\w+)\b\s\1\b/gi
+    let result = repeatPattern.exec(str);
+    while(result !== null){
+        repeatArray[repeatArray.length] = result[0];
+        repeatPattern.lastIndex = result.index + (result[0].length+1)/2;
+        result = repeatPattern.exec(str);
+    }
+    repeatArray.sort(function (value1,value2) {
+        value1 = value1.toLowerCase();
+        value2 = value2.toLowerCase();
+        if(value1 < value2){
+            return -1;
+        }
+        else if(value1 > value2){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    });
+    let repeatWords = new Set();
+    for(let i = 0;i < Math.min(repeatArray.length,10);i++){
+        repeatWords.add(repeatArray[i]);
+    }
+    console.log(repeatWords);
 }
 
 
@@ -56,7 +117,17 @@ function testRedundancy(str) {
     ①注意联系生活，并注意观察我给的上述例子。
 */
 function testKeyBoard(wantInput, actualInput) {
-
+    wantInput = wantInput.toUpperCase();
+    actualInput = actualInput.toUpperCase();
+    let wantSet = new Set(wantInput);
+    let actualSet = new Set(actualInput);
+    let brokenKey = new Set();
+    for(let key of wantSet){
+        if(!actualSet.has(key)){
+            brokenKey.add(key);
+        }
+    }
+    console.log(brokenKey);
 }
 
 /*
@@ -72,6 +143,12 @@ function testKeyBoard(wantInput, actualInput) {
     ⑤str为字符串。
 */
 function testSpecialReverse(str) {
+    let strArray = (str.trim()).split(/\s+/g);
+    let resultStr = "";
+    for(let i = strArray.length-1;i >= 0;i--){
+        resultStr = resultStr + strArray[i] + " ";
+    }
+    console.log(resultStr);
 }
 
 /*
@@ -90,6 +167,16 @@ function testSpecialReverse(str) {
 */
 
 function twoSum(nums, target) {
+    let numsMap = new Map();
+    let answer = [];
+    for(let i = 0;i < nums.length;i++){
+        numsMap.set(nums[i],i);
+        if(numsMap.has(target-nums[i])){
+            answer[answer.length] = [numsMap.get(target-nums[i]),i];
+        }
+    }
+    if(answer.length === 0) console.log("No answer");
+    else console.log(answer);
 }
 
 
@@ -99,12 +186,37 @@ function twoSum(nums, target) {
     打印最长的包含不同字符串的子字符串长度。
 要求：
     ①使用Map。
-    ②例如：输入"abbbbb",输出1，输入"bbbbb",输出2；
+    ②例如：输入"abbbbb",输出2，输入"bbbbb",输出1；
     ③只能显式使用一次循环。
     ④使用console.log打印即可。
     ⑤str为字符串。
 */
 function lengthOfLongestSubstring(str) {
+    if(str === ""){
+        console.log("0");
+    }
+    let curLength = 0;
+    let maxLength = 0;
+    let stringIndex = new Map();
+    for(let i = 0;i < str.length;i++){
+        if(stringIndex.has(str.charAt(i))){
+            let d = i - stringIndex.get(str.charAt(i));
+            if(d > curLength){
+                curLength++;
+            }
+            else{
+                curLength = d;
+            }
+        }
+        else{
+            curLength++;
+        }
+        stringIndex.set(str.charAt(i),i);
+        if(curLength >= maxLength){
+            maxLength = curLength;
+        }
+    }
+    console.log(maxLength);
 }
 
 /*
@@ -119,3 +231,62 @@ function lengthOfLongestSubstring(str) {
 function Country() {
     this.name = "国家";
 }
+//发展中国家
+function DevelopingCountry() {
+    Country.call(this);
+    this.name = "发展中国家";
+    this.sayHi = function () {
+        console.log("Hi,i am a developing country.");
+    }
+}
+//不发达国家
+function PoorCountry(){
+    this.name = "不发达国家";
+}
+PoorCountry.prototype = new Country();
+PoorCountry.prototype.saySad = function () {
+    console.log("I am a sad poor country.");
+};
+//发达国家
+let DevelopedCountry = Object.create(Country,{
+    name: {
+        value: "发达国家"
+    }
+});
+DevelopedCountry.sayHappy = function(){
+    console.log("I am a Happy developed country.");
+};
+
+(function test() {
+    //NO.1 wrong
+    testTime();
+    //NO.2
+    testMail("13331892815","2449278392@qq.com");
+    testMail("zsdfdf11333","2449278392@qq.com");
+    testMail("13331892815","2449278392@qq.");
+    testMail("zsdfdf11333","2449278392@qq.");
+    //NO.3
+    testRedundancy("Is is the iS is cost of of gasoline going up up");
+    testRedundancy("Is is iS the iS is cost of of gasoline going up up");
+    testRedundancy("test TEST ta ta ia ia biu biu la la er er we we qw qw tg tg iu iu io io");
+    //NO.4
+    testKeyBoard("7_This_is_a_test","_hs_s_a_es");
+    //NO.5
+    testSpecialReverse("the sky is blue");
+    testSpecialReverse("    hello    world!    ");
+    //NO.6
+    twoSum([2,3,4,5,6],9);
+    twoSum([2, 7, 11, 15],9);
+    twoSum([2, 7, 11, 15,2],9)
+    twoSum([2,7,11,15,4,7,2],9);
+    //NO.7 wrong
+    lengthOfLongestSubstring("abbbbbb");
+    lengthOfLongestSubstring("bbbbbb");
+    lengthOfLongestSubstring("abcdavwefg");
+    //NO.8
+    let developingCountry1 = new DevelopingCountry();
+    developingCountry1.sayHi();
+    let poorCountry1 = new PoorCountry();
+    poorCountry1.saySad();
+    DevelopedCountry.sayHappy();
+})();
