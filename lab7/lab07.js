@@ -5,6 +5,7 @@ const works = [
     { author: "Coco",lifetime:"1777-1799", tips: "Beauty",  photos: ["beauty1.jpg","beauty2.jpg"] }
 ];
 let scriptDiv = document.getElementsByClassName("flex-container justify");
+let script = document.getElementsByTagName("script");
 let divItems = [];
 let h4Topics = [];
 let divAuthors = [];
@@ -53,5 +54,5 @@ for(let i = 0;i < 4;i++){
     divItems[i].append(divAuthors[i]);
     divItems[i].append(divPops[i]);
     divItems[i].append(button[i]);
-    document.body.insertBefore(divItems[i], scriptDiv[0]);
+    scriptDiv[0].insertBefore(divItems[i], script[0]);
 }
