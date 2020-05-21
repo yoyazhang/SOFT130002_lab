@@ -3,7 +3,15 @@
 /********************************************begin************************************/
 
 /*Global Variable Area */
+let numButtons = document.getElementsByTagName("span");
+let wrapper = document.getElementsByClassName("wrap")[0];
+let buttonPrev = document.getElementsByClassName("arrow arrow_left")[0];
+let buttonNext = document.getElementsByClassName("arrow arrow_right")[0];
+let container = document.getElementsByClassName("container")[0];
+let autoplay;
 
+let table = document.getElementsByTagName("table")[0];
+let tds = document.getElementsByTagName("td");
 /*********************************************end*************************************/
 
 
@@ -23,6 +31,46 @@
 /********************************************begin************************************/
 
 /*Code Here*/
+function toNextPic(){
+    let currentOnButton = document.getElementsByClassName("on")[0];
+    let currentPicNum = currentOnButton.textContent;
+
+    currentOnButton.classList.remove("on");
+    if(currentPicNum === "5"){
+        numButtons[0].classList.add("on");
+    }
+    else{
+        numButtons[currentPicNum].classList.add("on");
+    }
+    let nowLeft = parseInt(wrapper.style.left);
+    if(nowLeft === -3600){
+        wrapper.style.left = -1200+"px";
+    }
+    else{
+        wrapper.style.left = (nowLeft - 600)+"px";
+    }
+}
+function toPrePic(){
+    let currentOnButton = document.getElementsByClassName("on")[0];
+    let currentPicNum = currentOnButton.textContent;
+
+    currentOnButton.classList.remove("on");
+    if(currentPicNum === "1"){
+        numButtons[4].classList.add("on");
+    }
+    else{
+        numButtons[currentPicNum-2].classList.add("on");
+    }
+    let nowLeft = parseInt(wrapper.style.left);
+    if(nowLeft === 0){
+        wrapper.style.left = -2400+"px";
+    }
+    else{
+        wrapper.style.left = (nowLeft + 600)+"px";
+    }
+}
+buttonPrev.onclick = toPrePic;
+buttonNext.onclick = toNextPic;
 
 /*********************************************end*************************************/
 
@@ -40,6 +88,20 @@
 /********************************************begin************************************/
 
 /*Code Here*/
+function startAuto(){
+    autoplay = setInterval(toNextPic,2000);
+}
+startAuto();
+function endAuto(){
+    clearInterval(autoplay);
+}
+container.onmouseover = function (){
+    endAuto();
+};
+container.onmouseleave = function () {
+    startAuto();
+};
+
 
 /*********************************************end*************************************/
 
@@ -55,6 +117,14 @@
 /********************************************begin************************************/
 
 /*Code Here*/
+for(let i = 0; i < 5;i++){
+    numButtons[i].onclick = function toSpecifiedPic() {
+        let currentOnButton = document.getElementsByClassName("on")[0];
+        currentOnButton.classList.remove("on");
+        numButtons[i].classList.add("on");
+        wrapper.style.left = -600*(i+1)+"px";
+    }
+}
 
 /*********************************************end*************************************/
 
@@ -69,5 +139,27 @@
 /********************************************begin************************************/
 
 /*Code Here*/
+table.style.marginLeft = "auto";
+table.style.marginRight = "auto";
+for(let i = 0;i < tds.length;i++){
+    let clickTime = 0;
+    let input =  document.createElement("input");
+    input.type = "text";
+
+    input.value = tds[i].innerText;
+    tds[i].innerText = "";
+    tds[i].appendChild(input);
+
+    input.addEventListener("click",function () {
+        if(clickTime === 0){
+            input.setSelectionRange(0,0);
+            clickTime ++;
+        }
+    },false);
+    input.addEventListener("blur",function () {
+        clickTime = 0;
+    },false);
+}
+
 
 /*********************************************end*************************************/
