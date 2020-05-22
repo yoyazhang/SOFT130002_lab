@@ -91,17 +91,7 @@ buttonNext.onclick = toNextPic;
 function startAuto(){
     autoplay = setInterval(toNextPic,2000);
 }
-document.onload = function(){
-    let wx = window.clientX;
-    let wy = window.clientY;
-    let d_left = container.offsetLeft;
-    let d_top = container.offsetTop;
-    let d_width = container.clientWidth;
-    let d_height = container.clientHeight;
-    if(wx < d_left || wy<d_top || wx > (d_left + d_width) || wy > (d_top + d_height)){
-        startAuto();
-    }
-};
+startAuto();
 function endAuto(){
     clearInterval(autoplay);
 }
