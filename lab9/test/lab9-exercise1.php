@@ -9,7 +9,14 @@
 <h1>PHP section (inside &lt;?php ... ?&gt; tags)</h1>
 <?php
 //this is a php comment IN tags (will not appear)
-echo "This was output using PHP";
+$isLeapYear = date("L");
+if($isLeapYear === 1){
+    $remaining = 366-date("z");
+}
+else{
+    $remaining = 365-date("z");
+}
+echo "There are ". $remaining . " days left in the year";
 echo "<br>"; //notice we must echo tags in php.
 
 ?>
